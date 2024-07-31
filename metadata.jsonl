@@ -1,0 +1,39 @@
+{"file_name": "data/1.png", "prompt": "lv bag"}
+{"file_name": "data/10.png", "prompt": "lv bag"}
+{"file_name": "data/11.png", "prompt": "lv bag"}
+{"file_name": "data/12.png", "prompt": "lv bag"}
+{"file_name": "data/13.png", "prompt": "lv bag"}
+{"file_name": "data/14.png", "prompt": "lv bag"}
+{"file_name": "data/15.png", "prompt": "lv bag"}
+{"file_name": "data/16.png", "prompt": "lv bag"}
+{"file_name": "data/2.png", "prompt": "lv bag"}
+{"file_name": "data/3.png", "prompt": "lv bag"}
+{"file_name": "data/4.png", "prompt": "lv bag"}
+{"file_name": "data/5.png", "prompt": "lv bag"}
+{"file_name": "data/6.png", "prompt": "lv bag"}
+{"file_name": "data/7.png", "prompt": "lv bag"}
+{"file_name": "data/8.png", "prompt": "lv bag"}
+{"file_name": "data/9.png", "prompt": "lv bag"}
+{"file_name": "data/a_cute_little_monser_holding_lv_bag.png", "prompt": "a cute little monser holding lv bag"}
+{"file_name": "data/a_woman_holding_lv_bag_in_her_hands.png", "prompt": "a woman holding lv bag in her hands"}
+{"file_name": "data/a_woman_in_purple_dress_wearing_lv_bag.png", "prompt": "a woman in purple dress wearing lv bag"}
+{"file_name": "data/a_woman_wearing_lv_bag_over_her_shoulders.png", "prompt": "a woman wearing lv bag over her shoulders"}
+{"file_name": "data/a_woman_with_black_boots_holding_lv_bag_in_her_hands.png", "prompt": "a woman with black boots holding lv bag in her hands"}
+
+accelerate launch train_dreambooth_sd3.py \
+  --pretrained_model_name_or_path=$MODEL_NAME  \
+  --instance_data_dir=$INSTANCE_DIR \
+  --output_dir=$OUTPUT_DIR \
+  --mixed_precision="fp16" \
+  --caption_column="prompt" \
+  --image_column="file_name" \
+  --resolution=1024 \
+  --train_batch_size=1 \
+  --gradient_accumulation_steps=4 \
+  --max_grad_norm=0.1 \
+  --learning_rate=1e-4 \
+  --report_to="wandb" \
+  --lr_scheduler="constant" \
+  --lr_warmup_steps=0 \
+  --max_train_steps=1000 \
+  --seed="0" \
