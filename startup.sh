@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Use this layer to add nodes and models
-# 445983fffc0e010a426d91885a3cdc09
 
 # Packages are installed after nodes so we can fix them...
 PYTHON_PACKAGES=(
